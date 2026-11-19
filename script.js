@@ -22,31 +22,31 @@ const CONFIG = {
   // Built-in artistic SVG cards are used by default so nothing ever looks broken.
   memories: [
     {
-      image: "images/pic1.jpg",
+      image: "pic1.jpg",
       caption: "kya katilana nazar hai wow, I am your biggest fan 💗",
       date: "JIYA KA 19TH BIRTHDAAYYYYY",
       note: "how pretty does my babygirl look. OH MY FUCKING GOD 😻😻"
     },
     {
-      image: "images/pic2.png",
+      image: "pic2.png",
       caption: "ki cute cute ami duta sao sao sao <333 ",
       date: "JIYA KA 19TH BIRTHDAAYYYYY",
       note: "bachpan se hi ki dhunu dhunu baby tu mur 😋💕"
     },
     {
-      image: "images/pic3.jpg",
+      image: "pic3.jpg",
       caption: "kyaa maal lagti hai yeh, ki dhuniya beh tumi",
       date: "JIYA KA 19TH BIRTHDAAYYYYY",
       note: "Meri malkin toh bohot hi zyada sundar hai yawrrr, I love my jiya malkin so so so much <333"
     },
     {
-      image: "images/pic4.jpg",
+      image: "pic4.jpg",
       caption: "babygirl with chotu the don 😋😋",
       date: "JIYA KA 19TH BIRTHDAAYYYYY",
       note: "duta ekeloge ki cutu cutu lage dekhat. Ekdom cuties <333 "
     },
     {
-      image: "images/pic5.jpg",
+      image: "pic5.jpg",
       caption: "kaisa bhondu bhondu baby tu mur, kene cutu putu dekhi e buku uribole dhore ",
       date: "JIYA KA 19TH BIRTHDAAYYYYY",
       note: "Jiya se daant khane me bhi mazza aata hai 🤪🤪"
