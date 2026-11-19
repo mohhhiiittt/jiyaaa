@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Special Birthday Surprise</title>
+
+  <!-- Elegant Editorial & Handwritten Fonts (gracefully falls back if offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="locked">
+  <!-- Ambient Pastel Glow Orbs -->
+  <div class="ambient-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Interactive Confetti Overlay Canvas -->
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- Floating Music Control -->
+  <button id="music-toggle" class="music-toggle" type="button" aria-label="Toggle background music">
+    <span class="music-bars" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </span>
+    <span id="music-label">Music: On</span>
+  </button>
+
+  <!-- Optional MP3 Audio Element (used automatically if CONFIG.musicUrl is set) -->
+  <audio id="bg-audio" loop preload="auto"></audio>
+
+  <!-- Floating Side Navigation Dots -->
+  <nav class="section-dots" id="section-dots" aria-label="Page sections">
+    <button class="section-dot active" data-target="celebration" data-label="Celebration" aria-label="Go to celebration"></button>
+    <button class="section-dot" data-target="gallery" data-label="Polaroids" aria-label="Go to memory gallery"></button>
+    <button class="section-dot" data-target="timeline" data-label="Our Memories" aria-label="Go to timeline"></button>
+    <button class="section-dot" data-target="letter" data-label="Heartfelt Letter" aria-label="Go to letter"></button>
+    <button class="section-dot" data-target="finale" data-label="Final Wish" aria-label="Go to final wish"></button>
+  </nav>
+
+  <!-- ========================================================================
+       1. OPENING SCREEN
+       ======================================================================== -->
+  <div id="opening-screen" role="dialog" aria-label="Birthday Invitation">
+    <span class="opening-kicker">A Little Keepsake Made Just For You</span>
+    <h1 class="opening-title">Hey <span data-recipient>Maya</span>...</h1>
+
+    <div class="envelope-stage">
+      <button id="envelope-btn" class="envelope-btn" type="button" aria-label="Open birthday invitation envelope">
+        <div class="envelope-shadow"></div>
+        <div class="envelope-back"></div>
+        <div class="envelope-card">
+          <span>You're Invited</span>
+          <small>Tap to unwrap your surprise</small>
+        </div>
+        <div class="envelope-front"></div>
+        <div class="envelope-flap"></div>
+        <div class="wax-seal" aria-hidden="true">&#10084;</div>
+      </button>
+    </div>
+
+    <p class="opening-hint">There is something waiting inside for you.</p>
+    <button id="open-cta-btn" class="opening-cta" type="button">Open Invitation</button>
+  </div>
+
+  <!-- ========================================================================
+       MAIN BIRTHDAY EXPERIENCE
+       ======================================================================== -->
+  <main id="main-experience">
+    <!-- 2. BIRTHDAY CELEBRATION -->
+    <section id="celebration">
+      <div class="container">
+        <div class="hero-badge reveal">&#10024; Today Is All About You</div>
+        <h2 class="hero-title reveal">
+          Happy Birthday, <span class="name-highlight" data-recipient>JIYAAAAA</span>!
+        </h2>
+        <p class="hero-subtitle reveal" id="hero-subtitle">
+          May this new chapter feel warm, luminous, and filled with every gentle joy your heart has been wishing for.
+        </p>
+
+        <div class="cake-stage reveal">
+          <p class="cake-instruction" id="cake-instruction">
+            Tap each candle to make a wish &amp; celebrate &#10024;
+          </p>
+
+          <div class="cake-wrapper" aria-label="Interactive birthday cake">
+            <div class="candles-row" id="candles-row">
+              <button class="candle" type="button" aria-label="Candle 1"><span class="wick"></span><span class="flame"></span><span class="smoke"></span></button>
+              <button class="candle" type="button" aria-label="Candle 2"><span class="wick"></span><span class="flame"></span><span class="smoke"></span></button>
+              <button class="candle" type="button" aria-label="Candle 3"><span class="wick"></span><span class="flame"></span><span class="smoke"></span></button>
+              <button class="candle" type="button" aria-label="Candle 4"><span class="wick"></span><span class="flame"></span><span class="smoke"></span></button>
+              <button class="candle" type="button" aria-label="Candle 5"><span class="wick"></span><span class="flame"></span><span class="smoke"></span></button>
+            </div>
+
+            <div class="cake-tier-top">
+              <div class="frosting-drip"></div>
+            </div>
+            <div class="cake-tier-bottom">
+              <div class="frosting-drip"></div>
+              <div class="cake-pearls">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="cake-plate"></div>
+          </div>
+
+          <div class="wish-message" id="wish-message">
+            Wish made! May every dream come true &#127881;
+          </div>
+
+          <div class="cake-controls">
+            <button id="blow-all-btn" class="btn-pill primary" type="button">Blow Out All Candles</button>
+            <button id="relight-btn" class="btn-pill" type="button">Relight Candles</button>
+          </div>
+        </div>
+
+        <a href="#gallery" class="scroll-cue">
+          <span>Scroll Down</span>
+          <span>&#8595;</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 3. MEMORY GALLERY -->
+    <section id="gallery">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">Frozen In Time</span>
+          <h2 class="section-title">Little <em>Polaroids</em> of MY BABYYY</h2>
+          <p class="section-subtitle">
+            Tap any photograph to take a closer look, or glide through our favorite moments together.
+          </p>
+        </div>
+
+        <div class="gallery-shell reveal">
+          <div class="gallery-viewport" id="gallery-viewport">
+            <div class="gallery-track" id="gallery-track"></div>
+          </div>
+
+          <div class="gallery-nav">
+            <button id="gallery-prev" class="nav-circle" type="button" aria-label="Previous photos">&#8592;</button>
+            <div class="gallery-dots" id="gallery-dots"></div>
+            <button id="gallery-next" class="nav-circle" type="button" aria-label="Next photos">&#8594;</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. OUR MEMORIES (TIMELINE) -->
+    <section id="timeline">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">Chapter By Chapter</span>
+          <h2 class="section-title">Our <em>Memories</em> Timeline</h2>
+          <p class="section-subtitle">
+            Every date holds a quiet magic. Tap any card to reveal a little hidden note.
+          </p>
+        </div>
+
+        <div class="timeline-wrap" id="timeline-wrap">
+          <div class="timeline-track" aria-hidden="true">
+            <div class="timeline-progress" id="timeline-progress"></div>
+          </div>
+          <div id="timeline-items"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. A HEARTFELT LETTER -->
+    <section id="letter">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">From The Heart</span>
+          <h2 class="section-title">A Letter <em>Just For You</em></h2>
+        </div>
+
+        <div class="letter-paper reveal">
+          <div class="letter-seal-badge" aria-hidden="true">&#9993;</div>
+          <div class="letter-body">
+            <span id="typed-letter"></span><span id="typing-cursor" class="typing-cursor"></span>
+          </div>
+          <div id="letter-signature" class="letter-signature"></div>
+
+          <div class="letter-actions">
+            <button id="reveal-letter-btn" class="btn-pill primary" type="button">Reveal Full Message</button>
+            <button id="replay-letter-btn" class="btn-pill" type="button">Replay Typing</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FINAL SCREEN -->
+    <section id="finale">
+      <canvas id="finale-canvas" aria-hidden="true"></canvas>
+
+      <div class="container">
+        <div class="finale-card reveal">
+          <span class="section-eyebrow">With All My Love</span>
+          <h2 class="finale-title" id="finale-title">
+            Here's to Another Beautiful Year, <em data-recipient>Maya</em>
+          </h2>
+          <p class="finale-message" id="finale-message">
+            Thank you for filling ordinary days with extraordinary warmth. Never forget how deeply appreciated, admired, and loved you are—today and always.
+          </p>
+
+          <div class="finale-actions">
+            <button id="celebrate-more-btn" class="btn-pill primary" type="button">
+              Send More Birthday Magic &#10024;
+            </button>
+            <button id="replay-all-btn" class="btn-pill" type="button">
+              Replay From Beginning
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Crafted with warmth &amp; stardust for <span data-recipient>Maya</span>'s birthday.
+    </footer>
+  </main>
+
+  <!-- Polaroid Lightbox Modal -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photograph view">
+    <div class="lightbox-card">
+      <button id="lightbox-close" class="lightbox-close" type="button" aria-label="Close photo">&times;</button>
+      <img id="lightbox-img" src="" alt="" />
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+      <div id="lightbox-note" class="lightbox-note"></div>
+      <div class="lightbox-arrows">
+        <button id="lightbox-prev" class="nav-circle" type="button" aria-label="Previous photo">&#8592;</button>
+        <button id="lightbox-next" class="nav-circle" type="button" aria-label="Next photo">&#8594;</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
